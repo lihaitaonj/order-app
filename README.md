@@ -11,6 +11,7 @@ npm install dva-cli -g
 dva new order-app
 
 # 修改文件结构
+
 routes =》 pages
 
 src/index.js =>
@@ -45,3 +46,15 @@ Ant Design Snippets
 npm uninstall sass-loader（卸载当前版本）
 
 npm install sass-loader@7.3.1 --save-dev  （安装7.x版本）
+
+# 安装react编写插件
+
+ES7 React/Redux/GraphQL/React-Native snippets
+
+# 路由
+
+import {Switch, Route, Redirect} from 'dva/router';
+
+一级路由 重定向
+
+router.js => 去掉 exact  （否则影响路由页面的显示）
