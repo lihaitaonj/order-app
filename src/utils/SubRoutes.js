@@ -1,14 +1,28 @@
 import React from 'react';
 import { Route, Redirect } from "dva/router";
 import NoMatch from "../components/NoMatch";
+import dynamic from "dva/dynamic";
 
 // const SubRoutes = (route) => {
 //   return (
 //     <Route render={props => <route.component {...props} routes={route.routes} />} />
 //   );
 // }
-export default function SubRoutes({routes, component: Component}) {
-  return <Route render={(props) => <Component {...props} routes={routes} />} />;
+
+//解决动态组件加载问题
+const dynamicCom = (app, models, component, routes) =>
+  dynamic({
+    app,
+    models: () => models,
+    component: () =>
+      component().then((res) => {
+        const Component = res.default || res;
+        return (props) => <Component app={app} routes={routes} {...props} />;
+      }),
+  });
+
+export default function SubRoutes({routes, component, app, model}) {
+  return <Route component={dynamicCom(app, model, component, routes)} />;
 };
 
 export function RedirectRoute({routes, from, exact}) {
