@@ -26,7 +26,7 @@ export default class index extends Component {
 
   handleSelectedKey(pathname) {
     const temp = pathname.split("/");
-    const key = temp && temp.length < 2 ? "home" : temp[temp.length - 1]
+    const key = temp && temp.length < 2 ? "home" : temp[1]
     this.setState({
       selectedKeys: [key]
     });

@@ -11,6 +11,9 @@ import SubRoutes from "./utils/SubRoutes";
 // import Login from "./pages/User/Login";
 // import Register from "./pages/User/Register";
 
+//私有路由开关
+const isAuthority = true;
+
 const RouteConfig = [
   {
     path: "/",
@@ -22,21 +25,59 @@ const RouteConfig = [
         component: () => import("./pages/Home"),
         model: [import("./models/home")],
         redirect: true,
+        isAuthority,
       },
       {
         path: "/menus",
         component: () => import("./pages/Menus"),
         model: [],
+        isAuthority,
       },
       {
         path: "/admin",
         component: () => import("./pages/Admin"),
         model: [],
+        isAuthority,
       },
       {
         path: "/about",
         component: () => import("./pages/About"),
         model: [],
+        routes: [
+          {
+            path: "/about/history",
+            component: () => import("./pages/About/History"),
+            model: [],
+          },
+          {
+            path: "/about/contact",
+            component: () => import("./pages/About/Contact"),
+            model: [],
+            routes: [
+              {
+                path: "/about/contact/phone",
+                model: [],
+                component: () => import("./pages/About/Phone"),
+              },
+              {
+                path: "/about/contact/address",
+                model: [],
+                component: () => import("./pages/About/Address"),
+              },
+            ],
+          },
+          {
+            path: "/about/orderingguide",
+            component: () => import("./pages/About/OrderingGuide"),
+            model: [],
+          },
+          {
+            path: "/about/delivery",
+            component: () => import("./pages/About/Delivery"),
+            model: [],
+          },
+        ],
+        isAuthority,
       },
       {
         path: "/login",

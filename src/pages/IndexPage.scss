@@ -1,7 +1,11 @@
 .layout {
   .header {
-    height: 68px;
+    height: 48px;
+    line-height: 48px;
     background: #fff;
+    >a {
+      line-height: 48px;
+    }
   }
   .content {
     padding: 15px 50px;

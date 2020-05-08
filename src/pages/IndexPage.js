@@ -45,7 +45,7 @@ function IndexPage(props) {
             <Redirect exact from={"/"} to={routes[0].path} />
           */}
           {/* <Redirect to="/home" /> */}
-          <RedirectRoute exact={true} from={"/"} to={routes} />
+          <RedirectRoute exact={true} from={"/"} routes={routes} />
           {/* 输入的链接不存在时,跳转到NoMatch组件中 */}
           <NoMatchRoute />
         </Switch>
