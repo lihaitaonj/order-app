@@ -19,7 +19,7 @@ class index extends Component {
     const { routes, app } = this.props;
     const { pathname } = this.props.location;
     const activeKey = pathname.split("/").slice(0, 3).join("/");
-    console.log(333, activeKey);
+    // console.log(333, activeKey);
     return (
       <div className={styles.about}>
         <Tabs
