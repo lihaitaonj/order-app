@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import {Form, Button, Input} from 'antd';
 import Logo from 'Assets/icon.png';
 import styles from './account.scss';
-
 class index extends Component {
   render() {
     return (
